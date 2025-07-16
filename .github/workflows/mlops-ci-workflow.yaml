@@ -3,14 +3,14 @@ name: MLops CI
 on:
   push:
     branches:
-      -main
+      - main  # <--- CORREGIDO: "- main" en lugar de "-main"
   pull_request:
     branches:
-      -main
+      - main  # <--- CORREGIDO: "- main" en lugar de "-main"
 
 jobs:
   workflow:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Corregido de "run-on" a "runs-on" (error común de escritura)
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
