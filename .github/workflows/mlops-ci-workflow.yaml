@@ -25,14 +25,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Data Processing Tests
+      - name: Run Data Processing
         run: |
           cd src/data_processing
           python src/data/run_processing.py \
             --input data/raw/house_data.csv \
             --output data/processed/cleaned_house_data.csv
 
-      - name: Run Data Processing Tests
+      - name: Do Feature Engineering
         run: |
           cd src/data_processing
           python src/features/engineer.py \
@@ -40,7 +40,7 @@ jobs:
             --output data/processed/featured_house_data.csv \
             --preprocessor models/trained/preprocessor.pkl
 
-      - name: Run Data Processing Tests
+      - name: Train the Model
         run: |
           cd src/data_processing
           python src/models/train_model.py \
